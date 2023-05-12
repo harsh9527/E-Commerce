@@ -14,6 +14,7 @@ public class ProviderController {
 
 	@Autowired
 	private ProviderService providerService;
+	
 	@PostMapping("/saveData")
 	public ResponseEntity<Provider> saveProvider(@RequestBody Provider provider) {
 		Provider provider2=providerService.saveProvider(provider);
