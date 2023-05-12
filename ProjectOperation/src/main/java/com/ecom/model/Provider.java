@@ -93,7 +93,14 @@ public class Provider {
 
 	public void setFax(String fax) {
 		this.fax = fax;
-	
+	}
+
+	public String getDescribe() {
+		return describ;
+	}
+
+	public void setDescribe(String describe) {
+		this.describ = describe;
 	}
 
 	public LocalDateTime getCreateDate() {
@@ -103,12 +110,7 @@ public class Provider {
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
-public void setDescrib(String describ) {
-	this.describ = describ;
-}
-public String getDescrib() {
-	return describ;
-}
+
 	@Override
 	public String toString() {
 		return "Provider [pid=" + pid + ", providerCode=" + providerCode + ", providerName=" + providerName
