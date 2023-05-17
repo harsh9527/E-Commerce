@@ -25,5 +25,29 @@ public class UserServciseImpl implements UserService{
 		return repository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 	}
 
+	@Override
+	public User updateUser(User user, int id) {
+		User user2=repository.findById(id).get();
+		user2.setUsername(user.getUsername());
+		user2.setFullName(user.getFullName());
+		user2.setEmail(user.getEmail());
+		user2.setPassword(user.getPassword());
+		user2.setPrimaryMobile(user.getPrimaryMobile());
+		user2.setSecondaryMobile(user.getSecondaryMobile());
+		user2.setDob(user.getDob());
+		user2.setRefferalInfo(user.getRefferalInfo());
+		user2.setRefferalType(user.getRefferalType());
+		user2.setAddress(user.getAddress());
+		user2.setCity(user.getCity());
+		user2.setState(user.getState());
+		return repository.save(user2);
+		
+	}
+
+	@Override
+	public void deleteUser(int id) {
+		repository.deleteById(id);
+	}
+
 	
 }

@@ -29,4 +29,25 @@ public class BikeServiceImpl implements BikeService {
 		return bikeRepository.save(bike);
 	}
 
+
+	@Override
+	public Bike updateBike(Bike bike, int id) {
+		Bike bike2=bikeRepository.findById(id).get();
+		bike2.setBikenum(bike.getBikenum());
+		bike2.setBikename(bike.getBikename());
+		bike2.setBikevar(bike.getBikevar());
+		bike2.setModelyear(bike.getModelyear());
+		bike2.setStatus(bike.getStatus());
+		bike2.setCreatedon(bike.getCreatedon());
+		bike2.setPrice(bike.getPrice());
+		
+		return bikeRepository.save(bike2);
+	}
+
+
+	@Override
+	public void deleteBike(int id) {
+		bikeRepository.deleteById(id);
+	}
+
 }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,21 @@ public class Bike {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+private String bikenum;
+	
+	private String bikename;
+	
+	private String bikevar;
+	
+	private int modelyear;
+	
+	private String status;
+	
+	@Column(updatable = false)
+	private LocalDate createdon;
+	
+	private int price;
 	
 	public int getId() {
 		return id;
@@ -81,19 +97,7 @@ public class Bike {
 		this.price = price;
 	}
 
-	private String bikenum;
 	
-	private String bikename;
-	
-	private String bikevar;
-	
-	private int modelyear;
-	
-	private String status;
-	
-	private LocalDate createdon;
-	
-	private int price;
 
 
 	
