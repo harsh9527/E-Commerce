@@ -1,11 +1,12 @@
 package com.ecom.model;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType; 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.Lob;
+//import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,24 +19,27 @@ public class Cart {
 	private String title;
 	private int quantity;
 	private double price;
+	private String name;
+	private String type;
+	
+	@Lob
+	private byte[] image;
 
-	@OneToOne(targetEntity = CartImage.class, cascade = CascadeType.ALL)
-	private CartImage cartImage;
-
-	public Cart(String title, int quantity, double price, CartImage cartImage) {
-		super();
+	
+	 public Cart() {
+	        // Default constructor added due to error occurred and asking for default constructor
+	    }
+	
+	
+	public Cart( String title, int quantity, double price, String name, String type, byte[] image) {
+		
+	
 		this.title = title;
 		this.quantity = quantity;
 		this.price = price;
-		this.cartImage = cartImage;
-	}
-
-	public CartImage getCartImage() {
-		return cartImage;
-	}
-
-	public void setCartImage(CartImage cartImage) {
-		this.cartImage = cartImage;
+		this.name = name;
+		this.type = type;
+		this.image = image;
 	}
 
 	public long getCartId() {
@@ -70,4 +74,32 @@ public class Cart {
 		this.price = price;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	
+	//@OneToOne(targetEntity = CartImage.class, cascade = CascadeType.ALL)
+	//private CartImage cartImage;
+
+	
 }
