@@ -1,5 +1,7 @@
 package com.ecom.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,12 @@ public class UserServciseImpl implements UserService{
 	public User userLogin(User user) {
 		// TODO Auto-generated method stub
 		return repository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+	}
+
+	@Override
+	public List<User> getUsers() {
+
+		return (List<User>)repository.findAll();
 	}
 
 	
