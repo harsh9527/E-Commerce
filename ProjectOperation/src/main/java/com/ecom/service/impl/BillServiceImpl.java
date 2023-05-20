@@ -20,6 +20,15 @@ public class BillServiceImpl implements BillService{
 		return repository.save(bill);
 	}
 
+	//Design the Restful API to get the bill details By NILEISHDL
+
+	@Override
+	public Bill getBillById(Integer id) {
+		// TODO Auto-generated method stub
+	    Bill bill = repository.findByBid(id);
+		return bill;
+	}
+
 	
 	
 }

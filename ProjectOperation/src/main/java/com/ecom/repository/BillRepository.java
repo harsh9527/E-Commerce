@@ -8,4 +8,5 @@ import com.ecom.model.Bill;
 @Repository
 public interface BillRepository extends JpaRepository<Bill, Integer>{
 
+	public Bill findByBid(Integer bid);
 }
