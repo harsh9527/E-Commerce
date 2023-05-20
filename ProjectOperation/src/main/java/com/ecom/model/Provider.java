@@ -1,16 +1,18 @@
 package com.ecom.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "provider")
+@Table(name = "Provider")
 public class Provider {
 
 	@Id
@@ -32,7 +34,26 @@ public class Provider {
 
 	private String describ;
 
+	public String getDescrib() {
+		return describ;
+	}
+
+	public void setDescrib(String describ) {
+		this.describ = describ;
+	}
+
+	public List<Bill> getBillList() {
+		return billList;
+	}
+
+	public void setBillList(List<Bill> billList) {
+		this.billList = billList;
+	}
+
 	private LocalDateTime createDate;
+	
+	@OneToMany(mappedBy = "pid")
+	private List<Bill> billList;
 
 	@PrePersist
 	protected void onCreate() {

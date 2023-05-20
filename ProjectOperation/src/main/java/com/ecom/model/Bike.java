@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -17,22 +18,25 @@ public class Bike {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-private String bikenum;
-	
+
+	private String bikenum;
+
 	private String bikename;
-	
+
 	private String bikevar;
-	
+
 	private int modelyear;
-	
+
 	private String status;
-	
+
+	@OneToMany(targetEntity = Booking.class ,cascade = CascadeType.ALL)
+	private List<Booking> booking;
+
 	@Column(updatable = false)
 	private LocalDate createdon;
-	
+
 	private int price;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -97,8 +101,4 @@ private String bikenum;
 		this.price = price;
 	}
 
-	
-
-
-	
 }
