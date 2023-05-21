@@ -22,57 +22,49 @@ public class UserController {
 
 	@Autowired
 	private UserService service;
-	
+
 	@Autowired
 	private RewardService rewardService;
-	
+
 	@PostMapping("/userReward")
 	public User saveUserReward(@RequestBody User user) {
-		
-		User user3=service.saveUSer(user);
-		List<Reward> rewards= user.getRewardList();
-		
-		for(Reward reward:rewards) {
-			
+
+		User user3 = service.saveUSer(user);
+		List<Reward> rewards = user.getRewardList();
+
+		for (Reward reward : rewards) {
+
 			reward.setId(user.getId());
 			service.saveReward(reward);
-			
+
 		}
-		
-		
+
 		return user3;
-		
+
 	}
-	
-	
-	
+
 	@PostMapping("/saveUser")
-	public ResponseEntity<User> saveUser(@RequestBody User user)
-	{
-		User user2=service.saveUSer(user); 
+	public ResponseEntity<User> saveUser(@RequestBody User user) {
+		User user2 = service.saveUSer(user);
 		return ResponseEntity.ok().body(user2);
 	}
-	
+
 	@GetMapping("/userLogin")
-	public User userlogin(@RequestBody User user)
-	{
-		 User user2=service.userLogin(user);
-		 return user2;
+	public User userlogin(@RequestBody User user) {
+		User user2 = service.userLogin(user);
+		return user2;
 	}
-	
+
 	@PutMapping("/updateUser/{id}")
-	public ResponseEntity<User> updateUser(@RequestBody User user,@PathVariable("id") int id)
-	{
-		User user2=service.updateUser(user,id);
-		return ResponseEntity.ok().body(user2);		
+	public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable("id") int id) {
+		User user2 = service.updateUser(user, id);
+		return ResponseEntity.ok().body(user2);
 	}
-	
+
 	@DeleteMapping("/deleteUser/{id}")
-	public void deleteUser(@PathVariable("id") int id)
-	{
-		 service.deleteUser(id);
-		 System.out.println("Deleted User Successfully");
+	public void deleteUser(@PathVariable("id") int id) {
+		service.deleteUser(id);
+		System.out.println("Deleted User Successfully");
 	}
-	
-	
+
 }
