@@ -5,10 +5,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecom.model.Bike;
 import com.ecom.model.Bill;
 import com.ecom.service.BillService;
 
@@ -33,5 +35,18 @@ public class BillController {
 		return ResponseEntity.ok().body(bill);
 
 	}
+	
+	@PutMapping("updateBill/{id}")
+	public Bill updateBill(@RequestBody Bill bill,@PathVariable Integer id) {
+		
+		Bill b=service.updateBill(bill, id);
+		return b;
+		
+		
+	}
+	
+	
 
 }
+	
+

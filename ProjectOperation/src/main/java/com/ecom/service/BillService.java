@@ -8,5 +8,6 @@ public interface BillService {
 	
 	//Design the Restful API to get the bill details By NILEISHDL
 	public Bill getBillById(Integer id);
+	public Bill updateBill(Bill bill,Integer id);
 	
 }
