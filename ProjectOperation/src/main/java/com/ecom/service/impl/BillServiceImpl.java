@@ -29,6 +29,21 @@ public class BillServiceImpl implements BillService{
 		return bill;
 	}
 
+	@Override
+	public Bill updateBill(Bill bill, Integer id) {
+		Bill b1=repository.findByBid(id);
+		b1.setBillCode(bill.getBillCode());
+		b1.setBillCom(bill.getBillCom());
+		b1.setBillName(bill.getBillName());
+		b1.setBillNum(bill.getBillNum());
+		b1.setMoney(bill.getMoney());
+		b1.setPid(bill.getPid());
+		return repository.save(b1);
+		
+	}
+
+	
+
 	
 	
 }

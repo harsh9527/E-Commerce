@@ -19,4 +19,26 @@ public class PaymentServiceImplInsert implements PaymentServiceInsert {
 		return paymentRepositoryInsert.save(payment);
 	}
 
+	@Override
+	public Payment updatePayment(Payment payment, int id) {
+		Payment p1=paymentRepositoryInsert.findById(id).get();
+		p1.setAmount(payment.getAmount());
+		p1.setCardno(payment.getCardno());
+		p1.setCvv(payment.getCvv());
+		p1.setExmonth(payment.getExmonth());
+		p1.setExyear(payment.getExyear());
+		p1.setNameoncard(payment.getNameoncard());
+		p1.setPaymentmethod(payment.getPaymentmethod());
+		p1.setPmtdate(payment.getPmtdate());
+		
+		return paymentRepositoryInsert.save(p1);
+	}
+
+
+
+
+	
+
+	
+
 }
