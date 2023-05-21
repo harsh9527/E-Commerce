@@ -3,6 +3,7 @@ package com.ecom.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ecom.model.Reward;
 import com.ecom.model.User;
 import com.ecom.repository.UserRepository;
 import com.ecom.service.UserService;
@@ -47,6 +48,12 @@ public class UserServciseImpl implements UserService{
 	@Override
 	public void deleteUser(int id) {
 		repository.deleteById(id);
+	}
+
+	@Override
+	public Reward saveReward(Reward reward) {
+		// TODO Auto-generated method stub
+		return (Reward) repository.save(reward);
 	}
 
 	
