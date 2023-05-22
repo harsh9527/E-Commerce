@@ -1,5 +1,7 @@
 package com.ecom.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,11 @@ public class RewardServiceImpl implements RewardService{
 		// TODO Auto-generated method stub
 		Reward rewards=rewardRepository.save(reward);
 		return rewards;
+	}
+	@Override
+	public List<Reward> getAllRewards() {
+		return rewardRepository.findAll();
+		
 	}
 
 }
