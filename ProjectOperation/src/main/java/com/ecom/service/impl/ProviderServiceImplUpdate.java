@@ -6,16 +6,15 @@ import org.springframework.stereotype.Service;
 import com.ecom.model.Provider;
 import com.ecom.repository.ProviderRepositoryUpdate;
 import com.ecom.service.ProviderServiceUpdate;
+
 @Service
 public class ProviderServiceImplUpdate implements ProviderServiceUpdate {
 	@Autowired
-private ProviderRepositoryUpdate providerRepositoryUpdate;
+	private ProviderRepositoryUpdate providerRepositoryUpdate;
 
-@Override
-public Provider updateProvider(Provider provider) {
+	@Override
+	public Provider updateProvider(Provider provider) {
 
-	return providerRepositoryUpdate.save(provider);
-}
+		return providerRepositoryUpdate.save(provider);
 	}
-
-
+}
