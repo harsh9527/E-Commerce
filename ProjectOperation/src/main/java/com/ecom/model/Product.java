@@ -1,9 +1,12 @@
 package com.ecom.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -11,23 +14,52 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-private int id;
+private int pid;
 private String name;
 private String type;
 private String description;
+private int quantity;
+private int price;
+
+@ManyToMany(mappedBy = "productList")
+private List<Order> orders;
 
 
 
+
+public int getQuantity() {
+	return quantity;
+}
+
+public void setQuantity(int quantity) {
+	this.quantity = quantity;
+}
+
+public int getPrice() {
+	return price;
+}
+
+public void setPrice(int price) {
+	this.price = price;
+}
+
+public List<Order> getOrders() {
+	return orders;
+}
+
+public void setOrders(List<Order> orders) {
+	this.orders = orders;
+}
 
 public Product() {
 	
 	}
 
 public int getId() {
-	return id;
+	return pid;
 }
 public void setId(int id) {
-	this.id = id;
+	this.pid = id;
 }
 public String getName() {
 	return name;
@@ -49,11 +81,11 @@ public void setDescription(String description) {
 }
 @Override
 public String toString() {
-	return "Product [id=" + id + ", name=" + name + ", type=" + type + ", description=" + description + "]";
+	return "Product [id=" + pid + ", name=" + name + ", type=" + type + ", description=" + description + "]";
 }
 public Product(int id, String name, String type, String description) {
 	super();
-	this.id = id;
+	this.pid = id;
 	this.name = name;
 	this.type = type;
 	this.description = description;

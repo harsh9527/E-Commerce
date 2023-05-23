@@ -36,6 +36,7 @@ public class UserLogin {
 	@OneToMany(mappedBy = "userid", cascade = CascadeType.ALL)
 	private List<Feedback> feedback;
 
+	
 	public int getId() {
 		return id;
 	}

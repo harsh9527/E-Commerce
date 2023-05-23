@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecom.model.Order;
+import com.ecom.model.Product;
 import com.ecom.model.Reward;
 import com.ecom.model.User;
+import com.ecom.service.OrderService;
+import com.ecom.service.ProductServiceInsert;
 import com.ecom.service.RewardService;
 import com.ecom.service.UserService;
 
@@ -25,6 +29,10 @@ public class UserController {
 
 	@Autowired
 	private RewardService rewardService;
+	@Autowired
+	private OrderService orderService;
+	@Autowired
+	private ProductServiceInsert productServiceInsert;
 
 	@PostMapping("/userReward")
 	public User saveUserReward(@RequestBody User user) {
@@ -65,6 +73,19 @@ public class UserController {
 	public void deleteUser(@PathVariable("id") int id) {
 		service.deleteUser(id);
 		System.out.println("Deleted User Successfully");
+	}
+	
+	@PostMapping("/saveUserOrder")
+	public User saveUserOrder(@RequestBody User user) {
+		User user1=service.saveUserOrder(user);
+		List<Order> ord=user1.getOrderList();
+		for(Order o:ord) {
+			o.setUserId(user1.getId());
+		
+			orderService.saveOrder(o);
+		}
+		return user;
+		
 	}
 
 }

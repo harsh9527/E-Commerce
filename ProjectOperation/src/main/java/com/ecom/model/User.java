@@ -40,7 +40,15 @@ public class User {
 	private String city;
 	private String state;
 	
+	@OneToMany(mappedBy="userId")
+	private List<Order> orderList;
 	
+	public List<Order> getOrderList() {
+		return orderList;
+	}
+	public void setOrderList(List<Order> orderList) {
+		this.orderList = orderList;
+	}
 	@OneToMany(mappedBy = "userId")
 	private List<Reward> rewardList;
 

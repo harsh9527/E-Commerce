@@ -13,6 +13,10 @@ public interface UserService {
 
 	public void deleteUser(int id);
 
-	public Reward saveReward(Reward reward); 
+	public Reward saveReward(Reward reward);
+	
+	public User saveUserOrder(User user);
+	
+	
 	
 }

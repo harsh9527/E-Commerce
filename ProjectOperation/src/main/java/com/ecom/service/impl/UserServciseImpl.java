@@ -56,5 +56,11 @@ public class UserServciseImpl implements UserService{
 		return (Reward) repository.save(reward);
 	}
 
+	@Override
+	public User saveUserOrder(User user) {
+		return repository.save(user);
+		
+	}
+
 	
 }
