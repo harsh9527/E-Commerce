@@ -15,7 +15,7 @@ public class TransactionControllerFetch {
 	@Autowired
 	private TransactionServiceFetch transactionServiceFetch;
 
-	@GetMapping("/getTransactio/{id}")
+	@GetMapping("/getTransaction/{id}")
 	public Transaction getTransaction(@PathVariable("id") Integer id) {
 		return transactionServiceFetch.getTransactionById(id);
 	}

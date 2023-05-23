@@ -65,8 +65,8 @@ public class Transaction {
 	public String toString() {
 		return "Transaction [id=" + id + ", date=" + date + ", total=" + total + "]";
 	}
-
-	public Transaction(int id, Date date, double total) {
+	public Transaction () {}
+		public Transaction(int id, Date date, double total) {
 		super();
 		this.id = id;
 		this.date = date;

@@ -1,6 +1,6 @@
 package com.ecom.service;
 
 public interface TransactionServiceDelete {
-	public void deleteById(Integer id);
+	public void deleteTransactionBy(int id);
 
 }

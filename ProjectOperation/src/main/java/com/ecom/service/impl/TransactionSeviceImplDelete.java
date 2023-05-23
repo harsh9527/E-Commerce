@@ -11,7 +11,7 @@ public class TransactionSeviceImplDelete implements TransactionServiceDelete{
 private TransactionRepositoryDelete transactionRepositoryDelete;
 	
 	@Override
-	public void deleteById(Integer id) {
+	public void deleteTransactionBy(int id) {
 		// TODO Auto-generated method stub
 		transactionRepositoryDelete.deleteById(id);
 	}

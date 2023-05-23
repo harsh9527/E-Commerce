@@ -16,8 +16,7 @@ public class TransactionController {
 	private TransactionService transactionService;
 
 	@PostMapping("/saveTransaction")
-	public ResponseEntity<com.ecom.model.Transaction> saveTransaction(
-			@RequestBody com.ecom.model.Transaction transaction) {
+	public ResponseEntity<com.ecom.model.Transaction> saveTransaction(@RequestBody com.ecom.model.Transaction transaction) {
 		com.ecom.model.Transaction transaction3 = transactionService.saveTransaction(transaction);
 		return ResponseEntity.ok().body(transaction3);
 	}
