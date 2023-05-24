@@ -9,14 +9,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.transaction.Transaction;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
+@Table(name = "user")
 public class User {
 
 	@Id
@@ -28,6 +33,8 @@ public class User {
 	private String password;
 	private String primaryMobile;
 	private String secondaryMobile;
+	
+
 	private String dob;
 	private String gender;
 	private String refferalType;
@@ -58,6 +65,9 @@ public class User {
 		this.rewardList = rewardList;
 	}
 
+
+	
+
 	/** Below fields should be auto generate while creating new user **/
 	@Temporal(TemporalType.DATE)
 	@CreatedDate
@@ -76,6 +86,26 @@ public class User {
 
 	@Column(name = "user_comments")
 	private String comments = "Welcome To E-Commerce Application";
+
+
+
+	@OneToMany
+	private List<OrderDetails> details;
+
+	public List<OrderDetails> getDetails() {
+		return details;
+	}
+
+	public void setDetails(List<OrderDetails> details) {
+		this.details = details;
+	}
+
+	
+
+	
+	
+	
+	
 
 	public String getUsername() {
 		return username;
@@ -228,5 +258,4 @@ public class User {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
-
 }

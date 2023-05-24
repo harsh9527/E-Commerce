@@ -16,4 +16,9 @@ private ProductRepositoryInsert productRepositoryInsert;
 	return productRepositoryInsert.save(product);
 		
 	}
+	@Override
+	public Product getProduct(int id) {
+		// TODO Auto-generated method stub
+		return productRepositoryInsert.findById(id);
+	}
 }
