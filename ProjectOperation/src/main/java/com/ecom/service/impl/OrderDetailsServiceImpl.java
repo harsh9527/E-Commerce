@@ -2,6 +2,8 @@ package com.ecom.service.impl;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	private OrderDetailsRepository orderDetailsRepository;
 	
 	@Override
-	
 	public OrderDetails saveOrderDetails(OrderDetails orderDetails) {
 		// TODO Auto-generated method stub
 		OrderDetails orderDetails2=orderDetailsRepository.save(orderDetails);
@@ -32,17 +33,24 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	}
 
 	@Override
-	public OrderDetails getOrderDetails(Long orderId) {
+	public OrderDetails getOrderDetails(int id) {
 		// TODO Auto-generated method stub
-		OrderDetails orderDetails3= orderDetailsRepository.getByOrderId(orderId);
-		return orderDetails3;
+		return orderDetailsRepository.findById(id);
 	}
 
 	@Override
-	public void deleteById(Long orderId) {
-		// TODO Auto-generated method stub
-		orderDetailsRepository.deleteById(orderId);
+	public void deleteById(int id) {
+		orderDetailsRepository.deleteById(id);
+		
 	}
+
+	@Override
+	public List<OrderDetails> getAllDeatils(OrderDetails orderDetails) {
+		// TODO Auto-generated method stub
+		return orderDetailsRepository.findAll();
+	}
+
+	
 
 	
 }

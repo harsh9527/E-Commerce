@@ -1,9 +1,17 @@
 package com.ecom.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 //80.Design the Restful web services to add the order details into database
@@ -14,25 +22,49 @@ public class OrderDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long orderId;
-	private long userId;
+	private int id;
+	@Column(name = "user_id")
+	private int userId;
 	private String productName;
 	private int quantity;
 	private double price;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "product_order",joinColumns 
+	=@JoinColumn(name="order_id",referencedColumnName = "id"),
+	inverseJoinColumns = @JoinColumn(name="product_id",referencedColumnName = "id"))
+	private Set<Product> products; 
 
-	public long getOrderId() {
-		return orderId;
+	
+
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id",insertable = false,updatable = false)
+	private User user;
+	
+	public Set<Product> getProducts() {
+		return products;
 	}
 
-	public void setOrderId(long orderId) {
-		this.orderId = orderId;
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 

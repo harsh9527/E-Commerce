@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -33,6 +34,8 @@ public class User {
 	private String password;
 	private String primaryMobile;
 	private String secondaryMobile;
+	
+
 	private String dob;
 	private String gender;
 	private String refferalType;
@@ -40,18 +43,7 @@ public class User {
 	private String address;
 	private String city;
 	private String state;
-
-	@OneToMany(mappedBy = "userId")
-	private List<Reward> rewardList;
-
-	public List<Reward> getRewardList() {
-		return rewardList;
-	}
-
-	public void setRewardList(List<Reward> rewardList) {
-		this.rewardList = rewardList;
 	
-	}
 	/** Below fields should be auto generate while creating new user **/
 	@Temporal(TemporalType.DATE)
 	@CreatedDate
@@ -70,6 +62,30 @@ public class User {
 
 	@Column(name = "user_comments")
 	private String comments = "Welcome To E-Commerce Application";
+
+	@OneToMany(mappedBy = "userId")
+	private List<Reward> rewardList;
+
+	@OneToMany
+	private List<OrderDetails> details;
+
+	public List<OrderDetails> getDetails() {
+		return details;
+	}
+
+	public void setDetails(List<OrderDetails> details) {
+		this.details = details;
+	}
+
+	public List<Reward> getRewardList() {
+		return rewardList;
+	}
+
+	@OneToMany(mappedBy = "userId" )
+	private List<OrderDetails> orderList;
+	
+	
+	
 
 	public String getUsername() {
 		return username;
@@ -222,5 +238,16 @@ public class User {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+	public List<OrderDetails> getOrderList() {
+		return orderList;
+	}
 
+	public void setOrderList(List<OrderDetails> orderList) {
+		this.orderList = orderList;
+	}
+	public void setRewardList(List<Reward> rewardList) {
+		this.rewardList = rewardList;
+	
+	}
+	
 }

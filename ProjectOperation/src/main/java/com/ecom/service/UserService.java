@@ -15,4 +15,6 @@ public interface UserService {
 
 	public Reward saveReward(Reward reward); 
 	
+	public User getUser(int id);
+	
 }

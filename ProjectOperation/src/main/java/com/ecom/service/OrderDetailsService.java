@@ -1,6 +1,8 @@
 package com.ecom.service;
 
 
+import java.util.List;
+
 import com.ecom.model.OrderDetails;
 
 public interface OrderDetailsService {
@@ -18,12 +20,14 @@ public interface OrderDetailsService {
     
 	// 82.Design the Restful web services to get the order details into database By
 	// Nileishdl
-	public OrderDetails getOrderDetails(Long orderId);
+	public OrderDetails getOrderDetails(int id);
 
 
 	
 	// 83.Design the Restful web services to delete the order details into database
 	// By Nileishdl
-	public void deleteById(Long orderId);
+	public void deleteById(int id);
+	
+	public List<OrderDetails> getAllDeatils(OrderDetails orderDetails);
 
 }
