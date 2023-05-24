@@ -103,7 +103,7 @@ public class UserController {
 	public ResponseEntity<User> getUserWithProduct(@RequestBody User user)
 	{
 		User user2=service.saveUSer(user);
-		List<OrderDetails> details=user.getOrderList();
+		List<OrderDetails> details=user.getDetails();
 		
 		for(OrderDetails details2:details)
 		{
