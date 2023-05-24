@@ -10,12 +10,13 @@ import com.ecom.repository.UserRepositoryFinAll;
 import com.ecom.service.UserServiceFindAll;
 
 @Service
-public class UserServiceFindAllImpl implements UserServiceFindAll  {
+public class UserServiceFindAllImpl implements UserServiceFindAll {
 	@Autowired
 	private UserRepositoryFinAll userRepositoryFindAll;
+
 	@Override
 	public List<User> getAllUsers() {
-		return (List<User>)userRepositoryFindAll.findAll();
+		return (List<User>) userRepositoryFindAll.findAll();
 	}
 
 }

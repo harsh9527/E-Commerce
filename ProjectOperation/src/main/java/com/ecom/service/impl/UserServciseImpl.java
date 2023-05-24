@@ -1,5 +1,7 @@
 package com.ecom.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +57,15 @@ public class UserServciseImpl implements UserService{
 		// TODO Auto-generated method stub
 		return (Reward) repository.save(reward);
 	}
+
+	@Override
+	public User getManyAddress(Integer id) {
+
+		Optional<User>user=repository.findById(id);
+		return user.get();
+	}
+
+	
 
 	
 }

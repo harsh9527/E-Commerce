@@ -1,5 +1,6 @@
 package com.ecom.service;
 
+
 import com.ecom.model.Reward;
 import com.ecom.model.User;
 
@@ -15,4 +16,5 @@ public interface UserService {
 
 	public Reward saveReward(Reward reward); 
 	
+	public User getManyAddress(Integer id);
 }

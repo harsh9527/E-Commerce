@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ecom.model.Reward;
 import com.ecom.model.User;
+import com.ecom.model.UserAddress;
 import com.ecom.service.RewardService;
 import com.ecom.service.UserService;
 
@@ -67,4 +68,12 @@ public class UserController {
 		System.out.println("Deleted User Successfully");
 	}
 
+	public User getManyAddress(@RequestBody   User user) {
+		
+		List<UserAddress>address=user.getUserAddressList();
+		
+		return user;
+		
+		
+	}
 }
