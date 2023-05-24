@@ -33,7 +33,7 @@ public class UserServciseImpl implements UserService {
 	@Override
 	public User updateUser(User user, int id) {
 
-		User user2=repository.findById();
+		User user2=repository.findById(id);
 		user2.setUsername(user.getUsername());
 		user2.setFullName(user.getFullName());
 		user2.setEmail(user.getEmail());
