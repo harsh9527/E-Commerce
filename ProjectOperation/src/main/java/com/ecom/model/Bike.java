@@ -2,6 +2,7 @@ package com.ecom.model;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -28,6 +31,14 @@ public class Bike {
 	private int modelyear;
 
 	private String status;
+	
+	@ManyToOne()
+	private Cart cart;
+	
+	@ManyToMany(mappedBy = "bikeSet")
+	private Set<Category> categorySet;
+
+	
 
 	@OneToMany(targetEntity = Booking.class ,cascade = CascadeType.ALL)
 	private List<Booking> booking;
