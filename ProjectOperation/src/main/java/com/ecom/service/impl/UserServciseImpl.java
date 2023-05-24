@@ -1,6 +1,8 @@
 package com.ecom.service.impl;
 
+
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,11 +13,11 @@ import com.ecom.repository.UserRepository;
 import com.ecom.service.UserService;
 
 @Service
-public class UserServciseImpl implements UserService{
+public class UserServciseImpl implements UserService {
 
 	@Autowired
 	private UserRepository repository;
-	
+
 	@Override
 	public User saveUSer(User user) {
 		// TODO Auto-generated method stub
@@ -30,7 +32,8 @@ public class UserServciseImpl implements UserService{
 
 	@Override
 	public User updateUser(User user, int id) {
-		User user2=repository.findById(id);
+
+		User user2=repository.findById();
 		user2.setUsername(user.getUsername());
 		user2.setFullName(user.getFullName());
 		user2.setEmail(user.getEmail());
@@ -44,7 +47,7 @@ public class UserServciseImpl implements UserService{
 		user2.setCity(user.getCity());
 		user2.setState(user.getState());
 		return repository.save(user2);
-		
+
 	}
 
 	@Override
@@ -58,6 +61,8 @@ public class UserServciseImpl implements UserService{
 		return (Reward) repository.save(reward);
 	}
 
+
+
 	@Override
 	public User getUser(int id) {
 		// TODO Auto-generated method stub
@@ -66,9 +71,10 @@ public class UserServciseImpl implements UserService{
 
 	@Override
 	public List<Object[]> getUserProducts() {
-		// TODO Auto-generated method stub
-		return null;
+	return repository.findAllUserProducts();
+		
 	}
 
 	
+
 }

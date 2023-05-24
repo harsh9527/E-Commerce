@@ -1,9 +1,12 @@
 package com.ecom.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class UserAddress {
@@ -17,6 +20,19 @@ public class UserAddress {
     private String phoneNum;
     private String isDefault;
     
+    @JoinColumn(name = "user_iid")
+    @ManyToOne
+    private User user;
+    
+    @Column(name = "users_id")
+    private int usersId;
+    
+	public int getUsersId() {
+		return usersId;
+	}
+	public void setUsersId(int usersId) {
+		this.usersId = usersId;
+	}
 	public int getId() {
 		return id;
 	}

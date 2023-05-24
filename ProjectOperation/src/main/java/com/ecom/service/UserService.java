@@ -8,7 +8,7 @@ import com.ecom.model.User;
 public interface UserService {
 
 	public User saveUSer(User user);
-	
+
 	public User userLogin(User user);
 
 	public User updateUser(User user, int id);
@@ -20,4 +20,5 @@ public interface UserService {
 	public User getUser(int id);
 	
 	public List<Object[]> getUserProducts();
+
 }
