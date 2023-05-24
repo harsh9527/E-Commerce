@@ -12,7 +12,7 @@ public class BikeServiceImplUpdate implements BikeServiceUpdate {
 	private BikeRepositoryUpdate bikeRepositoryUpdate;
 	@Override
 	public Bike update(Bike bike, int id) {
-		Bike bike1=bikeRepositoryUpdate.findById(id).get();
+		Bike bike1=bikeRepositoryUpdate.findById(id);
 		bike1.setBikename(bike.getBikename());
 		bike1.setBikenum(bike.getBikenum());
 		bike1.setBikename(bike.getBikevar());
