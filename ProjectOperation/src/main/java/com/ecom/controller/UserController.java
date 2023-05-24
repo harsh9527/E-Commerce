@@ -121,8 +121,12 @@ public class UserController {
 	}
 	
 	
-	
-	
+	@GetMapping("/getAllUserProducts")
+	public List<Object[]> getAllUserProducts(){
+		return userRepository.findAllUserProducts();
+		
+		
+	}
 	
 	
 
