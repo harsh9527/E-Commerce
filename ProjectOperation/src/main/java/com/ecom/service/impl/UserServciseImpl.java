@@ -28,7 +28,7 @@ public class UserServciseImpl implements UserService{
 
 	@Override
 	public User updateUser(User user, int id) {
-		User user2=repository.findById(id).get();
+		User user2=repository.findById(id);
 		user2.setUsername(user.getUsername());
 		user2.setFullName(user.getFullName());
 		user2.setEmail(user.getEmail());
@@ -54,6 +54,12 @@ public class UserServciseImpl implements UserService{
 	public Reward saveReward(Reward reward) {
 		// TODO Auto-generated method stub
 		return (Reward) repository.save(reward);
+	}
+
+	@Override
+	public User getUser(int id) {
+		// TODO Auto-generated method stub
+		return repository.findById(id);
 	}
 
 	

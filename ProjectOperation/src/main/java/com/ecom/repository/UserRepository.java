@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.ecom.model.Reward;
 import com.ecom.model.User;
+import java.util.List;
+
 
 @Repository
 @EnableJpaRepositories
@@ -14,5 +16,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	public User findByUsernameAndPassword(String username,String password);
 
 	public Object save(Reward reward);
+	
+	public User findById(int id);
 	
 }
